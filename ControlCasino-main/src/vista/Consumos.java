@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cl.duoc.pgy2121;
+package vista;
 
 /**
  *
@@ -16,6 +16,7 @@ public class Consumos extends javax.swing.JFrame {
      */
     public Consumos() {
         initComponents();
+        llenarcheck();
     }
 
     /**
@@ -170,7 +171,11 @@ public class Consumos extends javax.swing.JFrame {
     private void consClientRutFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consClientRutFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_consClientRutFieldActionPerformed
-
+    
+    private void llenarcheck(){
+        
+        
+    }
     /**
      * @param args the command line arguments
      */

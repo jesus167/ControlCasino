@@ -5,10 +5,10 @@
  */
 package vista;
 
-import cl.duoc.pgy2121.Auditoria;
-import cl.duoc.pgy2121.BorrarUsuario;
-import cl.duoc.pgy2121.Consumos;
-import cl.duoc.pgy2121.RegistroUsuario;
+import vista.BorrarUsuario;
+import vista.Auditoria;
+import vista.Consumos;
+import vista.RegUsuarioView;
 
 /**
  *
@@ -143,13 +143,13 @@ public class MenuInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserActionPerformed
-        RegistroUsuario vmRU = new RegistroUsuario();
+        RegUsuarioView vmRU = new RegUsuarioView();
         vmRU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_createUserActionPerformed
 
     private void updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserActionPerformed
-        RegistroUsuario vmRU = new RegistroUsuario();
+        RegUsuarioView vmRU = new RegUsuarioView();
         vmRU.setVisible(true);
         this.dispose();      
     }//GEN-LAST:event_updateUserActionPerformed
@@ -161,7 +161,7 @@ public class MenuInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteUserActionPerformed
 
     private void registroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroClienteActionPerformed
-            RegistroCliente vmRC = new RegistroCliente();
+            RegClienteView vmRC = new RegClienteView();
             vmRC.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_registroClienteActionPerformed

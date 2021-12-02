@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cl.duoc.pgy2121;
+package vista;
+
+import controlador.RegistroCliente;
+import controlador.RegistroUsuario;
 
 /**
  *
@@ -14,8 +17,23 @@ public class Auditoria extends javax.swing.JFrame {
     /**
      * Creates new form Auditoria
      */
+    private RegistroUsuario regUser = new RegistroUsuario();
+    
+    private RegistroCliente regCliente = new RegistroCliente();
+    
+    
     public Auditoria() {
         initComponents();
+    }
+    
+    
+    
+    public void listarUsuarios(){
+        
+    }
+    
+    public void listarCliente(){
+        
     }
 
     /**
@@ -28,15 +46,11 @@ public class Auditoria extends javax.swing.JFrame {
     private void initComponents() {
 
         tittleInfoLabel = new java.awt.Label();
-        infoDateInitLabel = new javax.swing.JLabel();
-        infoDateEndLabel = new javax.swing.JLabel();
-        infoConsLabel = new javax.swing.JLabel();
         infoAreaLabel = new javax.swing.JLabel();
-        infoDateInitField = new javax.swing.JTextField();
-        infoDateEndField = new javax.swing.JTextField();
-        infoConsField = new javax.swing.JTextField();
-        infoAreaField = new javax.swing.JTextField();
         infoReviewButt = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        InformeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,106 +58,64 @@ public class Auditoria extends javax.swing.JFrame {
         tittleInfoLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         tittleInfoLabel.setText("INFORME DE REGISTROS");
 
-        infoDateInitLabel.setText("Fecha inicio");
-
-        infoDateEndLabel.setText("Fecha termino");
-
-        infoConsLabel.setText("Consumo");
-
         infoAreaLabel.setText("Area");
 
-        infoDateInitField.setMaximumSize(new java.awt.Dimension(200, 25));
-        infoDateInitField.setMinimumSize(new java.awt.Dimension(200, 25));
-        infoDateInitField.setPreferredSize(new java.awt.Dimension(200, 25));
-        infoDateInitField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoDateInitFieldActionPerformed(evt);
-            }
-        });
-
-        infoDateEndField.setMaximumSize(new java.awt.Dimension(200, 25));
-        infoDateEndField.setMinimumSize(new java.awt.Dimension(200, 25));
-        infoDateEndField.setPreferredSize(new java.awt.Dimension(200, 25));
-
-        infoConsField.setMaximumSize(new java.awt.Dimension(200, 25));
-        infoConsField.setMinimumSize(new java.awt.Dimension(200, 25));
-        infoConsField.setPreferredSize(new java.awt.Dimension(200, 25));
-        infoConsField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoConsFieldActionPerformed(evt);
-            }
-        });
-
-        infoAreaField.setMaximumSize(new java.awt.Dimension(200, 25));
-        infoAreaField.setMinimumSize(new java.awt.Dimension(200, 25));
-        infoAreaField.setPreferredSize(new java.awt.Dimension(200, 25));
-
         infoReviewButt.setText("Aceptar");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        InformeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clientes", "Usuarios" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tittleInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(infoReviewButt)
+                .addGap(150, 150, 150))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoDateInitLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(infoDateInitField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(infoReviewButt)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infoAreaLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(infoAreaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infoConsLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(infoConsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infoDateEndLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(infoDateEndField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(61, 61, 61))
-            .addComponent(tittleInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                        .addGap(150, 150, 150)
+                        .addComponent(infoAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(InformeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(tittleInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(infoDateInitField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoDateInitLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(infoDateEndField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoDateEndLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(infoConsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoConsLabel))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(infoAreaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InformeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(infoAreaLabel))
-                .addGap(28, 28, 28)
+                .addGap(44, 44, 44)
                 .addComponent(infoReviewButt)
-                .addGap(52, 52, 52))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void infoDateInitFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoDateInitFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoDateInitFieldActionPerformed
-
-    private void infoConsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoConsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoConsFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,15 +153,11 @@ public class Auditoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField infoAreaField;
+    private javax.swing.JComboBox<String> InformeComboBox;
     private javax.swing.JLabel infoAreaLabel;
-    private javax.swing.JTextField infoConsField;
-    private javax.swing.JLabel infoConsLabel;
-    private javax.swing.JTextField infoDateEndField;
-    private javax.swing.JLabel infoDateEndLabel;
-    private javax.swing.JTextField infoDateInitField;
-    private javax.swing.JLabel infoDateInitLabel;
     private javax.swing.JButton infoReviewButt;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private java.awt.Label tittleInfoLabel;
     // End of variables declaration//GEN-END:variables
 }

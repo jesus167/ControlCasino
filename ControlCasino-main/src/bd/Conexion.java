@@ -3,31 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cl.duoc.pgy2121;
+package bd;
 
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Administrador
- */
+
+
 public class Conexion {
     
-     public Connection obtenerConexion() {
-        Connection connection = null;
+    private static Connection conn = null;
+    private static String login = "CONTROLCASINO";
+    private static String clave = "CONTROLCASINO";
+    private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+    
+    public static Connection getConnection(){
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@WIN01:1521:oracleBD", "CONTROLCASINO", "CONTROLCASINO");
-            System.out.println("Conexión exitosa");
-        } catch (SQLException e) {
-            System.out.println("Error de conexión" + e.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            conn = DriverManager.getConnection(url,login,clave);
+            conn.setAutoCommit(false);
+            if (conn != null){
+                System.out.println("Conexión Exitosa");
+            }else{
+                System.out.println("No se pudo conectar a la Base de Datos");
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Conexión Erronea " + e.getMessage());
         }
-        return connection;
+        return conn;
+    }
+    
+    public void desconexion(){
+        try {
+            conn.close();
+        } catch (Exception e) {
+            System.out.println("Error al Desconectar" + e.getMessage());
+        }
+    }
+    
+    public static void main(String[] args){
+        Conexion c = new Conexion();
+        c.getConnection();
     }
     
 }
