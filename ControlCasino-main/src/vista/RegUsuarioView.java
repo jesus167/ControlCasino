@@ -45,7 +45,6 @@ public class RegUsuarioView extends javax.swing.JFrame {
         userLastNamLabel = new javax.swing.JLabel();
         userSecLastNamLabel = new javax.swing.JLabel();
         createUserButton = new javax.swing.JButton();
-        btnActualizarUsuario = new javax.swing.JButton();
         Label1 = new javax.swing.JLabel();
         rolAsignadoText = new javax.swing.JTextField();
 
@@ -111,13 +110,6 @@ public class RegUsuarioView extends javax.swing.JFrame {
             }
         });
 
-        btnActualizarUsuario.setText("Actualizar");
-        btnActualizarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarUsuarioActionPerformed(evt);
-            }
-        });
-
         Label1.setText("Rol Asignado");
 
         rolAsignadoText.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -131,40 +123,39 @@ public class RegUsuarioView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tittleUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(userLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(userRutLabel)
-                        .addComponent(userNameLabel)
-                        .addComponent(userLastNamLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userSecLastNamLabel))
-                        .addGap(7, 7, 7))
-                    .addComponent(createUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userRutField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userLastNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userSecNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rolAsignadoText))
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnActualizarUsuario)
-                        .addGap(109, 109, 109))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(userLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(userSecLastNamLabel))
+                                        .addGap(57, 57, 57)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(userSecNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(rolAsignadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(userRutLabel)
+                                            .addComponent(userNameLabel)
+                                            .addComponent(userLastNamLabel))
+                                        .addGap(51, 51, 51)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(userLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(userRutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(createUserButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 19, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tittleUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,9 +165,9 @@ public class RegUsuarioView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(userLabel)
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(userRutLabel)
-                    .addComponent(userRutField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userRutField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userRutLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,11 +184,9 @@ public class RegUsuarioView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label1)
                     .addComponent(rolAsignadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createUserButton)
-                    .addComponent(btnActualizarUsuario))
-                .addGap(38, 38, 38))
+                .addGap(35, 35, 35)
+                .addComponent(createUserButton)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,6 +206,7 @@ public class RegUsuarioView extends javax.swing.JFrame {
         Usuario newUser = new Usuario(0, rut, nombre, apellidoPaterno, apellidoMaterno, rolAsignado);
         RegistroUsuario regUser = new RegistroUsuario();
         
+               
         regUser.crearUsuario(newUser);
         System.out.println("Usuario Agregado");
 
@@ -242,24 +232,6 @@ public class RegUsuarioView extends javax.swing.JFrame {
     private void rolAsignadoTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rolAsignadoTextFocusGained
         rolAsignadoText.setText("");
     }//GEN-LAST:event_rolAsignadoTextFocusGained
-
-    private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
-                String rut, nombre, apellidoPaterno, apellidoMaterno, rolAsignado;
-        
-        
-        rut = userRutField.getText();
-        nombre = userNameField.getText();
-        apellidoPaterno = userLastNameField.getText();
-        apellidoMaterno = userSecNameField.getText();
-        rolAsignado = rolAsignadoText.getText();
-        
-        
-        Usuario newUser = new Usuario(0, rut, nombre, apellidoPaterno, apellidoMaterno, rolAsignado);
-        RegistroUsuario regUser = new RegistroUsuario();
-        
-        regUser.actualizarUsuario(newUser);
-        System.out.println("Usuario Actualizado");
-    }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,7 +273,6 @@ public class RegUsuarioView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label1;
-    private javax.swing.JButton btnActualizarUsuario;
     private javax.swing.JButton createUserButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField rolAsignadoText;

@@ -7,14 +7,14 @@ package vista;
 
 /**
  *
- * @author JP
+ * @author Administrador
  */
-public class RegClienteView extends javax.swing.JFrame {
+public class ActualizarCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form Archivo
+     * Creates new form ActualizarCliente
      */
-    public RegClienteView() {
+    public ActualizarCliente() {
         initComponents();
     }
 
@@ -28,34 +28,40 @@ public class RegClienteView extends javax.swing.JFrame {
     private void initComponents() {
 
         tittleUserLabel = new java.awt.Label();
-        userLabel = new javax.swing.JLabel();
         clientRutField = new javax.swing.JTextField();
+        btnBuscarRut = new javax.swing.JButton();
+        userNameLabel = new javax.swing.JLabel();
+        userNameLabel1 = new javax.swing.JLabel();
         clientNameField = new javax.swing.JTextField();
+        userLastNamLabel = new javax.swing.JLabel();
         clientLastNamField = new javax.swing.JTextField();
         clientSecLastNamField = new javax.swing.JTextField();
-        userRutLabel = new javax.swing.JLabel();
-        userNameLabel = new javax.swing.JLabel();
-        userLastNamLabel = new javax.swing.JLabel();
         userSecLastNamLabel = new javax.swing.JLabel();
         userAreaLabel = new javax.swing.JLabel();
-        clientAddButt = new javax.swing.JButton();
         areaComboBox = new javax.swing.JComboBox<>();
+        btnActualizarCliente = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tittleUserLabel.setAlignment(java.awt.Label.CENTER);
         tittleUserLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         tittleUserLabel.setText("CLIENTES");
 
-        userLabel.setText("1.Ingrese los datos del Cliente");
-
         clientRutField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientRutField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientRutField.setPreferredSize(new java.awt.Dimension(200, 25));
 
+        btnBuscarRut.setText("Buscar por Rut");
+
+        userNameLabel.setText("Nombre");
+
+        userNameLabel1.setText("Nombre");
+
         clientNameField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientNameField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientNameField.setPreferredSize(new java.awt.Dimension(200, 25));
+
+        userLastNamLabel.setText("Apellido Paterno");
 
         clientLastNamField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
@@ -65,89 +71,89 @@ public class RegClienteView extends javax.swing.JFrame {
         clientSecLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientSecLastNamField.setPreferredSize(new java.awt.Dimension(200, 25));
 
-        userRutLabel.setText("Rut (12345678-4)");
-
-        userNameLabel.setText("Nombre");
-
-        userLastNamLabel.setText("Apellido Paterno");
-
         userSecLastNamLabel.setText("Apellido Materno");
 
         userAreaLabel.setText("Area");
 
-        clientAddButt.setText("Crear");
-
         areaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas\t", "Logistica", "Administrativo", "Informatica", "Externo" }));
+
+        btnActualizarCliente.setText("Actualizar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userLastNamLabel)
+                    .addComponent(userSecLastNamLabel)
+                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarRut, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userLabel)
-                            .addComponent(userRutLabel)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(tittleUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(userNameLabel)
-                                        .addComponent(userLastNamLabel)
-                                        .addComponent(userSecLastNamLabel)))
-                                .addComponent(userAreaLabel))
-                            .addGap(59, 59, 59)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(clientRutField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                .addComponent(clientNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clientLastNamField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clientSecLastNamField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                            .addComponent(clientNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(clientRutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(clientLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(clientSecLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 85, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(clientAddButt)
-                .addGap(78, 78, 78))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(tittleUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(220, 220, 220)
+                    .addComponent(userNameLabel)
+                    .addContainerGap(269, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(37, 37, 37)
                 .addComponent(tittleUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(userLabel)
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userRutLabel)
+                    .addComponent(btnBuscarRut)
                     .addComponent(clientRutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clientNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameLabel)
-                    .addComponent(clientNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clientLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userLastNamLabel))
-                .addGap(26, 26, 26)
+                    .addComponent(userLastNamLabel)
+                    .addComponent(clientLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userSecLastNamLabel)
                     .addComponent(clientSecLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userAreaLabel)
                     .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(clientAddButt)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(btnActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(219, 219, 219)
+                    .addComponent(userNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(251, Short.MAX_VALUE)))
         );
-
-        tittleUserLabel.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,52 +175,37 @@ public class RegClienteView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ActualizarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegClienteView().setVisible(true);
+                new ActualizarCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> areaComboBox;
-    private javax.swing.JButton clientAddButt;
+    private javax.swing.JButton btnActualizarCliente;
+    private javax.swing.JButton btnBuscarRut;
     private javax.swing.JTextField clientLastNamField;
     private javax.swing.JTextField clientNameField;
     private javax.swing.JTextField clientRutField;
     private javax.swing.JTextField clientSecLastNamField;
     private java.awt.Label tittleUserLabel;
     private javax.swing.JLabel userAreaLabel;
-    private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userLastNamLabel;
     private javax.swing.JLabel userNameLabel;
-    private javax.swing.JLabel userRutLabel;
+    private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userSecLastNamLabel;
     // End of variables declaration//GEN-END:variables
 }

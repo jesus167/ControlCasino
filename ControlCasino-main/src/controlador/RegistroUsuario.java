@@ -6,13 +6,13 @@
 package controlador;
 
 import bd.Conexion;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import modelo.Usuario;
 
 /**
@@ -99,37 +99,37 @@ public class RegistroUsuario {
         return mensaje;
     }
     
-    public void listarUsuario(Jtable tabla){
+    public List<Usuario> listarUsuario(){
         
+        List<Usuario> lista = new ArrayList<Usuario>();
         Connection conn =  Conexion.getConnection();
-        
-        DefaultTableModel model;
-        String [] columnas = {"ID","RUT","NOMBRE", "APPELLIDO PATERNO", "APPELLIDO MATERNO", "ROL ASIGNADO"};
-        model = new DefaultTableModel(null, columnas);
-        
+        PreparedStatement ps;
+        ResultSet rs;              
         String sql = "SELECT * FROM usuario ORDER BY idusuario";
-        
-        String [] filas = new String[7];
-        Statement st = null;
-        ResultSet rs = null;
-        
+
         try {
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
-            
-            while (rs.next()){
-                for (int i = 0; i < 7; i++) {
-                    filas[i] = rs.getString(i+1);
-                                   
-                }
-                model.addRow(filas);
+            ps = conn.prepareStatement(sql);
+            rs= ps.executeQuery();
+            while(rs.next()){
+                Usuario u = new Usuario();
+                u.setIdUsuario(rs.getInt(1));
+                u.setNombre(rs.getString(2));
+                u.setAppPaterno(rs.getString(3));
+                u.setAppMaterno(rs.getString(4));
+                u.setRolAsignado(rs.getString(5));
+                lista.add(u);   
             }
-            tabla.setModel(model);
+            rs.close();
+            ps.close();
+            conn.close();       
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "No se puede listar la tabla");
+            System.out.println("Error SQL al listar usuario" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al listar usuario" + e.getMessage());
         }
-        
+        return lista;
     }
    
     

@@ -17,16 +17,16 @@ public class Cliente {
     private String appPaterno;
     private String appMaterno;
     private String area;
-    private char desayuno;
-    private char almuerzo;
-    private char cena;
-    private char colacionFria;
-    private char colacionNoche;
+    private boolean desayuno;
+    private boolean almuerzo;
+    private boolean cena;
+    private boolean colacionFria;
+    private boolean colacionNoche;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String rutCliente, String nombre, String appPaterno, String appMaterno, String area, char desayuno, char almuerzo, char cena, char colacionFria, char colacionNoche) {
+    public Cliente(int idCliente, String rutCliente, String nombre, String appPaterno, String appMaterno, String area, boolean desayuno, boolean almuerzo, boolean cena, boolean colacionFria, boolean colacionNoche) {
         this.idCliente = idCliente;
         this.rutCliente = rutCliente;
         this.nombre = nombre;
@@ -88,43 +88,43 @@ public class Cliente {
         this.area = area;
     }
 
-    public char getDesayuno() {
+    public boolean isDesayuno() {
         return desayuno;
     }
 
-    public void setDesayuno(char desayuno) {
+    public void setDesayuno(boolean desayuno) {
         this.desayuno = desayuno;
     }
 
-    public char getAlmuerzo() {
+    public boolean isAlmuerzo() {
         return almuerzo;
     }
 
-    public void setAlmuerzo(char almuerzo) {
+    public void setAlmuerzo(boolean almuerzo) {
         this.almuerzo = almuerzo;
     }
 
-    public char getCena() {
+    public boolean isCena() {
         return cena;
     }
 
-    public void setCena(char cena) {
+    public void setCena(boolean cena) {
         this.cena = cena;
     }
 
-    public char getColacionFria() {
+    public boolean isColacionFria() {
         return colacionFria;
     }
 
-    public void setColacionFria(char colacionFria) {
+    public void setColacionFria(boolean colacionFria) {
         this.colacionFria = colacionFria;
     }
 
-    public char getColacionNoche() {
+    public boolean isColacionNoche() {
         return colacionNoche;
     }
 
-    public void setColacionNoche(char colacionNoche) {
+    public void setColacionNoche(boolean colacionNoche) {
         this.colacionNoche = colacionNoche;
     }
 
@@ -132,9 +132,7 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "idCliente=" + idCliente + ", rutCliente=" + rutCliente + ", nombre=" + nombre + ", appPaterno=" + appPaterno + ", appMaterno=" + appMaterno + ", area=" + area + ", desayuno=" + desayuno + ", almuerzo=" + almuerzo + ", cena=" + cena + ", colacionFria=" + colacionFria + ", colacionNoche=" + colacionNoche + '}';
     }
-    
-    
-
 
     
+   
 }

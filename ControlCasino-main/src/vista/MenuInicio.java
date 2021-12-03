@@ -5,7 +5,6 @@
  */
 package vista;
 
-import vista.BorrarUsuario;
 import vista.Auditoria;
 import vista.Consumos;
 import vista.RegUsuarioView;
@@ -37,13 +36,11 @@ public class MenuInicio extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         createUser = new javax.swing.JMenuItem();
-        updateUser = new javax.swing.JMenuItem();
-        deleteUser = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         registroCliente = new javax.swing.JMenuItem();
         regConsumption = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        generateRecord = new javax.swing.JMenuItem();
+        infoUser = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -63,22 +60,6 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         jMenu1.add(createUser);
-
-        updateUser.setText("Actualizar Usuario");
-        updateUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateUserActionPerformed(evt);
-            }
-        });
-        jMenu1.add(updateUser);
-
-        deleteUser.setText("Borrar Usuario");
-        deleteUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserActionPerformed(evt);
-            }
-        });
-        jMenu1.add(deleteUser);
 
         jMenuBar1.add(jMenu1);
 
@@ -104,13 +85,13 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jMenu2.setText("Auditoría");
 
-        generateRecord.setText("Generar Informe");
-        generateRecord.addActionListener(new java.awt.event.ActionListener() {
+        infoUser.setText("Informe Cliente");
+        infoUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateRecordActionPerformed(evt);
+                infoUserActionPerformed(evt);
             }
         });
-        jMenu2.add(generateRecord);
+        jMenu2.add(infoUser);
 
         jMenuBar1.add(jMenu2);
 
@@ -148,18 +129,6 @@ public class MenuInicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_createUserActionPerformed
 
-    private void updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserActionPerformed
-        RegUsuarioView vmRU = new RegUsuarioView();
-        vmRU.setVisible(true);
-        this.dispose();      
-    }//GEN-LAST:event_updateUserActionPerformed
-
-    private void deleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserActionPerformed
-        BorrarUsuario vmBorrarU = new BorrarUsuario();
-        vmBorrarU.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_deleteUserActionPerformed
-
     private void registroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroClienteActionPerformed
             RegClienteView vmRC = new RegClienteView();
             vmRC.setVisible(true);
@@ -172,11 +141,11 @@ public class MenuInicio extends javax.swing.JFrame {
             this.dispose();
     }//GEN-LAST:event_regConsumptionActionPerformed
 
-    private void generateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateRecordActionPerformed
+    private void infoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoUserActionPerformed
             Auditoria vmAU = new Auditoria();
             vmAU.setVisible(true);
             this.dispose();
-    }//GEN-LAST:event_generateRecordActionPerformed
+    }//GEN-LAST:event_infoUserActionPerformed
                                               
     /**
      * @param args the command line arguments
@@ -215,8 +184,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem createUser;
-    private javax.swing.JMenuItem deleteUser;
-    private javax.swing.JMenuItem generateRecord;
+    private javax.swing.JMenuItem infoUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -225,6 +193,5 @@ public class MenuInicio extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem regConsumption;
     private javax.swing.JMenuItem registroCliente;
-    private javax.swing.JMenuItem updateUser;
     // End of variables declaration//GEN-END:variables
 }

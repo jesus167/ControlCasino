@@ -5,8 +5,14 @@
  */
 package vista;
 
+
 import controlador.RegistroCliente;
 import controlador.RegistroUsuario;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import modelo.Cliente;
+import modelo.Usuario;
 
 /**
  *
@@ -22,19 +28,14 @@ public class Auditoria extends javax.swing.JFrame {
     private RegistroCliente regCliente = new RegistroCliente();
     
     
+    
+    
     public Auditoria() {
         initComponents();
-    }
-    
-    
-    
-    public void listarUsuarios(){
         
+ 
     }
     
-    public void listarCliente(){
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,77 +46,107 @@ public class Auditoria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tittleInfoLabel = new java.awt.Label();
-        infoAreaLabel = new javax.swing.JLabel();
-        infoReviewButt = new javax.swing.JButton();
+        tittleInfo = new java.awt.Label();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        InformeComboBox = new javax.swing.JComboBox<>();
+        tablaUsuario = new javax.swing.JTable();
+        btnBuscar = new javax.swing.JButton();
+        rutClienteInforme = new javax.swing.JTextField();
+        btnBuscarRut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tittleInfoLabel.setAlignment(java.awt.Label.CENTER);
-        tittleInfoLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        tittleInfoLabel.setText("INFORME DE REGISTROS");
+        tittleInfo.setAlignment(java.awt.Label.CENTER);
+        tittleInfo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        tittleInfo.setText("INFORME DE REGISTROS");
 
-        infoAreaLabel.setText("Area");
-
-        infoReviewButt.setText("Aceptar");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-
+                "Rut", "Nombre", "Ap_Paterno", "Ap_Materno", "Area", "Desayuno", "Almuerzo", "Cena", "Colación Fria", "Colación Noche"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaUsuario);
 
-        InformeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clientes", "Usuarios" }));
+        btnBuscar.setText("Mostrar todo");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarRut.setText("Buscar por Rut");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tittleInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(infoReviewButt)
-                .addGap(150, 150, 150))
+            .addComponent(tittleInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(infoAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(InformeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(rutClienteInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnBuscarRut, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(tittleInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addComponent(tittleInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InformeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoAreaLabel))
-                .addGap(44, 44, 44)
-                .addComponent(infoReviewButt)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(rutClienteInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarRut, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String  rut, nombre, apellidoPaterno, apellidoMaterno, area;
+        boolean  desayuno, almuerzo, cena, colacionFria, colacionNoche ;
+        
+        
+        RegistroCliente regCliente = new RegistroCliente();
+        DefaultTableModel modelo = (DefaultTableModel) tablaUsuario.getModel();
+        
+
+        
+        modelo.setRowCount(0);
+        
+        List<Cliente> lista = regCliente.listarCliente();
+
+        for (Cliente tmp : lista) {
+                rut = tmp.getRutCliente();
+                nombre = tmp.getNombre();
+                apellidoPaterno = tmp.getAppPaterno();
+                apellidoMaterno = tmp.getAppMaterno();
+                area = tmp.getArea();
+                desayuno = tmp.isDesayuno();
+                almuerzo = tmp.isAlmuerzo();
+                cena = tmp.isCena();
+                colacionFria = tmp.isColacionFria();
+                colacionNoche = tmp.isColacionNoche();
+
+                modelo.addRow(new Object[]{rut, nombre, apellidoPaterno, apellidoMaterno, area, desayuno, almuerzo, cena, colacionFria, colacionNoche});
+            }
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,11 +184,11 @@ public class Auditoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> InformeComboBox;
-    private javax.swing.JLabel infoAreaLabel;
-    private javax.swing.JButton infoReviewButt;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarRut;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private java.awt.Label tittleInfoLabel;
+    private javax.swing.JTextField rutClienteInforme;
+    public javax.swing.JTable tablaUsuario;
+    private java.awt.Label tittleInfo;
     // End of variables declaration//GEN-END:variables
 }

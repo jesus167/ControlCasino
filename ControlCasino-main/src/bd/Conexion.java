@@ -24,7 +24,6 @@ public class Conexion {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(url,login,clave);
-            conn.setAutoCommit(false);
             if (conn != null){
                 System.out.println("Conexión Exitosa");
             }else{

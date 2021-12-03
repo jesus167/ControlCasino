@@ -5,8 +5,10 @@
  */
 package test;
 
-import controlador.RegistroUsuario;
-import modelo.Usuario;
+import bd.Conexion;
+import controlador.RegistroCliente;
+import java.sql.Connection;
+import modelo.Cliente;
 
 /**
  *
@@ -14,24 +16,32 @@ import modelo.Usuario;
  */
 public class Test {
     
-    RegistroUsuario rUser = new RegistroUsuario();
-    Usuario user = new Usuario();
+    
+    RegistroCliente rUser = new RegistroCliente();
+    Cliente user = new Cliente();
     String mensaje = "";
     
     public void agregar(){
         
-        user.setRutUsuario("17464568-9");
+        Connection conn =  Conexion.getConnection();
+        
+        user.setRutCliente("17464568-9");
         user.setNombre("Juan Pablo");
         user.setAppPaterno("Vera");
         user.setAppMaterno("Salinas");
-        user.setRolAsignado("Qa");
+        user.setArea("Qa");
+        user.setDesayuno(true);
+        user.setAlmuerzo(true);
+        user.setCena(false);
+        user.setColacionFria(true);
+        user.setColacionNoche(false);
          
-         mensaje = rUser.crearUsuario(user);
+         mensaje = rUser.crearCliente(conn, user);
          System.out.println(mensaje);
         
     }
     
-    public void modificar(){
+    /*public void modificar(){
          
          user.setIdUsuario(3);
          user.setRutUsuario("15274395-9");
@@ -48,11 +58,11 @@ public class Test {
          mensaje = rUser.borrarUsuario(23);
          System.out.println(mensaje);
      }
-
+*/
      
      public static void main(String[] args){
          Test test = new Test();
                 
-         test.eliminar();
+         test.agregar();
      }
 }
