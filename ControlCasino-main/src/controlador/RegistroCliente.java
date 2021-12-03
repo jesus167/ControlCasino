@@ -85,15 +85,18 @@ public class RegistroCliente {
         
     }
     
-    public String borrarCliente(Connection con , int id){
-               
+    public boolean eliminar(int idCliente){
+        
+        
+        Connection conn =  Conexion.getConnection();
+                       
         PreparedStatement pst = null;
-        String sql = "DELETE FROM cliente WHERE rutcliente= ?";
+        String sql = "DELETE FROM cliente WHERE idcliente= ?";
         
             try {
                 
-                pst = con.prepareStatement(sql);
-                pst.setInt(1, id);
+                pst = conn.prepareStatement(sql);
+                pst.setInt(1, idCliente);
                 mensaje = "El Cliente fue borrado exitosamente";
                 pst.execute();
                 pst.close();
@@ -103,7 +106,46 @@ public class RegistroCliente {
                 mensaje = "No se pudo borrar correctamente\n" + e.getMessage();
             }
         
-        return mensaje;
+        return false;
+    }
+    
+    public Cliente buscarRut(String rutCliente){
+        Cliente cliente = new Cliente();
+        Connection conn =  Conexion.getConnection();
+        try {
+            String sql = "SELECT idcliente, rutcliente, nombre, apppaterno, appmaterno, area, desayuno, almuerzo, cena, colacionfria, colacionnoche from cliente WHERE idcliente = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, rutCliente);
+            ResultSet rs = ps.executeQuery();
+            
+             if (rs.next()) {
+                cliente.setIdCliente(rs.getInt("idcliente"));
+                cliente.setRutCliente(rs.getString("rutcliente"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setAppPaterno(rs.getString("apppaterno"));
+                cliente.setAppMaterno(rs.getString("appmaterno"));
+                cliente.setArea(rs.getString("area"));
+                cliente.setDesayuno(rs.getBoolean("desayuno"));
+                cliente.setAlmuerzo(rs.getBoolean("almuerzo"));
+                cliente.setCena(rs.getBoolean("cena"));
+                cliente.setColacionFria(rs.getBoolean("colacionfria"));
+                cliente.setColacionNoche(rs.getBoolean("colacionnoche"));
+ 
+            }
+             rs.close();
+             ps.close();
+             conn.close();
+        } catch (SQLException e) {
+            
+            System.out.println("Error SQL al listar Cliente por id" + e.getMessage());
+        }catch (Exception e){
+            
+            System.out.println("Error al listar Cliente por id" + e.getMessage());
+            
+        }
+        return cliente;
+        
+    
     }
     
     public List<Cliente> listarCliente(){

@@ -38,6 +38,8 @@ public class MenuInicio extends javax.swing.JFrame {
         createUser = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         registroCliente = new javax.swing.JMenuItem();
+        irActualizarCliente = new javax.swing.JMenuItem();
+        irEliminarCliente = new javax.swing.JMenuItem();
         regConsumption = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         infoUser = new javax.swing.JMenuItem();
@@ -65,13 +67,29 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jMenu3.setText("Casino");
 
-        registroCliente.setText("Area Cliente");
+        registroCliente.setText("Crear Cliente");
         registroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroClienteActionPerformed(evt);
             }
         });
         jMenu3.add(registroCliente);
+
+        irActualizarCliente.setText("Actualizar Clientes");
+        irActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                irActualizarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(irActualizarCliente);
+
+        irEliminarCliente.setText("Eliminar Clientes");
+        irEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                irEliminarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(irEliminarCliente);
 
         regConsumption.setText("Registro Consumo");
         regConsumption.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +164,18 @@ public class MenuInicio extends javax.swing.JFrame {
             vmAU.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_infoUserActionPerformed
+
+    private void irEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irEliminarClienteActionPerformed
+            BorrarCliente brC = new BorrarCliente();
+            brC.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_irEliminarClienteActionPerformed
+
+    private void irActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irActualizarClienteActionPerformed
+            ActualizarCliente aC = new ActualizarCliente();
+            aC.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_irActualizarClienteActionPerformed
                                               
     /**
      * @param args the command line arguments
@@ -185,6 +215,8 @@ public class MenuInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem createUser;
     private javax.swing.JMenuItem infoUser;
+    private javax.swing.JMenuItem irActualizarCliente;
+    private javax.swing.JMenuItem irEliminarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

@@ -25,9 +25,9 @@ public class Test {
         
         Connection conn =  Conexion.getConnection();
         
-        user.setRutCliente("17464568-9");
-        user.setNombre("Juan Pablo");
-        user.setAppPaterno("Vera");
+        user.setRutCliente("27756655-9");
+        user.setNombre("Gabriel");
+        user.setAppPaterno("Boric");
         user.setAppMaterno("Salinas");
         user.setArea("Qa");
         user.setDesayuno(true);
@@ -53,16 +53,23 @@ public class Test {
          mensaje = rUser.actualizarUsuario(user);
          System.out.println(mensaje);
      }
-     
+     */
      public void eliminar(){
-         mensaje = rUser.borrarUsuario(23);
+         
+         Connection conn =  Conexion.getConnection();
+         
+         user.setRutCliente("17464568-9");
+         
+         
+         mensaje = rUser.borrarCliente("29756655-9");
          System.out.println(mensaje);
      }
-*/
+
      
      public static void main(String[] args){
          Test test = new Test();
                 
-         test.agregar();
+         //test.agregar();
+         test.eliminar();
      }
 }
