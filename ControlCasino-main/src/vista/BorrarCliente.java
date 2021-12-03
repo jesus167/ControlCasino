@@ -132,6 +132,7 @@ public class BorrarCliente extends javax.swing.JFrame {
         }else{
             System.out.println("Algo fallo");
             JOptionPane.showMessageDialog(null, "No se ha encontrado el rut para Eliminar");
+        }
         /*String rut = rutCliente.getText();       
         RegistroCliente regClient = new RegistroCliente();
         Cliente cliente = regClient.buscarRut(rut);
