@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.RegistroCliente;
+import modelo.Cliente;
+
+
 /**
  *
  * @author JP
@@ -39,7 +43,8 @@ public class RegClienteView extends javax.swing.JFrame {
         userSecLastNamLabel = new javax.swing.JLabel();
         userAreaLabel = new javax.swing.JLabel();
         clientAddButt = new javax.swing.JButton();
-        areaComboBox = new javax.swing.JComboBox<>();
+        areaText = new javax.swing.JTextField();
+        volverMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,18 +57,38 @@ public class RegClienteView extends javax.swing.JFrame {
         clientRutField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientRutField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientRutField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientRutField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientRutFieldFocusGained(evt);
+            }
+        });
 
         clientNameField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientNameField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientNameField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientNameFieldFocusGained(evt);
+            }
+        });
 
         clientLastNamField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientLastNamField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientLastNamField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientLastNamFieldFocusGained(evt);
+            }
+        });
 
         clientSecLastNamField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientSecLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientSecLastNamField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientSecLastNamField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientSecLastNamFieldFocusGained(evt);
+            }
+        });
 
         userRutLabel.setText("Rut (12345678-4)");
 
@@ -76,8 +101,24 @@ public class RegClienteView extends javax.swing.JFrame {
         userAreaLabel.setText("Area");
 
         clientAddButt.setText("Crear");
+        clientAddButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientAddButtActionPerformed(evt);
+            }
+        });
 
-        areaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas\t", "Logistica", "Administrativo", "Informatica", "Externo" }));
+        areaText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                areaTextFocusGained(evt);
+            }
+        });
+
+        volverMenu.setText("Volver");
+        volverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,14 +145,16 @@ public class RegClienteView extends javax.swing.JFrame {
                                 .addComponent(userAreaLabel))
                             .addGap(59, 59, 59)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(clientRutField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                                 .addComponent(clientNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(clientLastNamField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clientSecLastNamField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(clientSecLastNamField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(areaText)))))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(volverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(clientAddButt)
                 .addGap(78, 78, 78))
         );
@@ -138,12 +181,14 @@ public class RegClienteView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userSecLastNamLabel)
                     .addComponent(clientSecLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userAreaLabel)
-                    .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(clientAddButt)
+                    .addComponent(areaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clientAddButt)
+                    .addComponent(volverMenu))
                 .addGap(26, 26, 26))
         );
 
@@ -151,6 +196,61 @@ public class RegClienteView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clientAddButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientAddButtActionPerformed
+        String rut, nombre, apellidoPaterno, apellidoMaterno, area;
+        
+        
+        rut = clientRutField.getText();
+        nombre = clientNameField.getText();
+        apellidoPaterno = clientLastNamField.getText();
+        apellidoMaterno = clientSecLastNamField.getText();
+        area = areaText.getText();
+        
+        Cliente nC = new Cliente(0, rut, nombre, apellidoPaterno, apellidoMaterno, area, false, false, false, false, false);
+        RegistroCliente rc = new RegistroCliente();
+        
+        rc.crearCliente(nC);
+        
+        // Limpiar campos 
+        clientRutField.setText("");
+        clientNameField.setText("");
+        clientLastNamField.setText("");
+        clientSecLastNamField.setText("");
+        areaText.setText("");
+        
+        System.out.println(nC);
+        System.out.println("Usuario Agregado");
+      
+
+    }//GEN-LAST:event_clientAddButtActionPerformed
+
+    private void areaTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_areaTextFocusGained
+        areaText.setText("");
+    }//GEN-LAST:event_areaTextFocusGained
+
+    private void clientRutFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientRutFieldFocusGained
+        clientRutField.setText("");
+    }//GEN-LAST:event_clientRutFieldFocusGained
+
+    private void clientNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientNameFieldFocusGained
+        clientNameField.setText(""); 
+    }//GEN-LAST:event_clientNameFieldFocusGained
+
+    private void clientLastNamFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientLastNamFieldFocusGained
+        clientLastNamField.setText("");
+    }//GEN-LAST:event_clientLastNamFieldFocusGained
+
+    private void clientSecLastNamFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientSecLastNamFieldFocusGained
+        clientSecLastNamField.setText("");
+    }//GEN-LAST:event_clientSecLastNamFieldFocusGained
+
+    private void volverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverMenuActionPerformed
+        // TODO add your handling code here:
+        MenuInicio Me = new MenuInicio();
+        Me.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,7 +303,7 @@ public class RegClienteView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> areaComboBox;
+    private javax.swing.JTextField areaText;
     private javax.swing.JButton clientAddButt;
     private javax.swing.JTextField clientLastNamField;
     private javax.swing.JTextField clientNameField;
@@ -216,5 +316,6 @@ public class RegClienteView extends javax.swing.JFrame {
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userRutLabel;
     private javax.swing.JLabel userSecLastNamLabel;
+    private javax.swing.JButton volverMenu;
     // End of variables declaration//GEN-END:variables
 }

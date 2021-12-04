@@ -34,28 +34,23 @@
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="clientNameField" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="clientRutField" min="-2" max="-2" attributes="0"/>
-                                  <Component id="clientLastNamField" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="clientSecLastNamField" min="-2" pref="266" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                  <Component id="clientNameField" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="areaClienteTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="clientRutField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="clientLastNamField" alignment="0" pref="266" max="32767" attributes="0"/>
+                          <Component id="clientSecLastNamField" alignment="0" pref="266" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="areaComboBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="volverMenu" min="-2" pref="148" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnActualizarCliente" min="-2" pref="139" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
           </Group>
@@ -98,13 +93,16 @@
                   <Component id="userSecLastNamLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="clientSecLastNamField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userAreaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="areaComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="areaClienteTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
-              <Component id="btnActualizarCliente" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnActualizarCliente" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="volverMenu" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -139,11 +137,18 @@
           <Dimension value="[200, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="clientRutFieldFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientRutFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscarRut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar por Rut"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarRutActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="userNameLabel">
       <Properties>
@@ -167,6 +172,9 @@
           <Dimension value="[200, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="clientNameFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="userLastNamLabel">
       <Properties>
@@ -185,6 +193,9 @@
           <Dimension value="[200, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="clientLastNamFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="clientSecLastNamField">
       <Properties>
@@ -198,6 +209,9 @@
           <Dimension value="[200, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="clientSecLastNamFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="userSecLastNamLabel">
       <Properties>
@@ -209,26 +223,26 @@
         <Property name="text" type="java.lang.String" value="Area"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="areaComboBox">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="Ventas&#x9;"/>
-            <StringItem index="1" value="Logistica"/>
-            <StringItem index="2" value="Administrativo"/>
-            <StringItem index="3" value="Informatica"/>
-            <StringItem index="4" value="Externo"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="btnActualizarCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarClienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="areaClienteTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="areaClienteTextFieldFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="volverMenu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Volver"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="volverMenuActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

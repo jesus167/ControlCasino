@@ -47,6 +47,7 @@ public class RegUsuarioView extends javax.swing.JFrame {
         createUserButton = new javax.swing.JButton();
         Label1 = new javax.swing.JLabel();
         rolAsignadoText = new javax.swing.JTextField();
+        volverMenu = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -118,6 +119,13 @@ public class RegUsuarioView extends javax.swing.JFrame {
             }
         });
 
+        volverMenu.setText("Volver");
+        volverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,7 +158,11 @@ public class RegUsuarioView extends javax.swing.JFrame {
                                             .addComponent(userLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(userRutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(createUserButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(138, 138, 138)
+                                        .addComponent(volverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(createUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -184,9 +196,11 @@ public class RegUsuarioView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label1)
                     .addComponent(rolAsignadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(createUserButton)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createUserButton)
+                    .addComponent(volverMenu))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,6 +222,15 @@ public class RegUsuarioView extends javax.swing.JFrame {
         
                
         regUser.crearUsuario(newUser);
+        
+        userRutField.setText("");
+        userNameField.setText("");
+        userLastNameField.setText("");
+        userSecNameField.setText("");
+        rolAsignadoText.setText("");
+        
+        
+        System.out.println(newUser);
         System.out.println("Usuario Agregado");
 
         
@@ -232,6 +255,13 @@ public class RegUsuarioView extends javax.swing.JFrame {
     private void rolAsignadoTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_rolAsignadoTextFocusGained
         rolAsignadoText.setText("");
     }//GEN-LAST:event_rolAsignadoTextFocusGained
+
+    private void volverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverMenuActionPerformed
+        // TODO add your handling code here:
+        MenuInicio Me = new MenuInicio();
+        Me.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,5 +316,6 @@ public class RegUsuarioView extends javax.swing.JFrame {
     private javax.swing.JLabel userRutLabel;
     private javax.swing.JLabel userSecLastNamLabel;
     private javax.swing.JTextField userSecNameField;
+    private javax.swing.JButton volverMenu;
     // End of variables declaration//GEN-END:variables
 }

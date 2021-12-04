@@ -46,12 +46,21 @@ public class Auditoria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        volverMenu = new javax.swing.JButton();
         tittleInfo = new java.awt.Label();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuario = new javax.swing.JTable();
         btnBuscar = new javax.swing.JButton();
         rutClienteInforme = new javax.swing.JTextField();
         btnBuscarRut = new javax.swing.JButton();
+        volverMenu1 = new javax.swing.JButton();
+
+        volverMenu.setText("Volver");
+        volverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverMenuActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,38 +89,53 @@ public class Auditoria extends javax.swing.JFrame {
         });
 
         btnBuscarRut.setText("Buscar por Rut");
+        btnBuscarRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarRutActionPerformed(evt);
+            }
+        });
+
+        volverMenu1.setText("Volver");
+        volverMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverMenu1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tittleInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(tittleInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(rutClienteInforme, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnBuscarRut, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(172, 172, 172)
+                .addComponent(volverMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(130, 130, 130))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(tittleInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rutClienteInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarRut, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volverMenu1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
 
         pack();
@@ -143,10 +167,58 @@ public class Auditoria extends javax.swing.JFrame {
                 colacionFria = tmp.isColacionFria();
                 colacionNoche = tmp.isColacionNoche();
 
+                
                 modelo.addRow(new Object[]{rut, nombre, apellidoPaterno, apellidoMaterno, area, desayuno, almuerzo, cena, colacionFria, colacionNoche});
             }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnBuscarRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRutActionPerformed
+        // TODO add your handling code here:
+        
+        String  rut, nombre, apellidoPaterno, apellidoMaterno, area;
+        boolean  desayuno, almuerzo, cena, colacionFria, colacionNoche ;
+        
+        
+        RegistroCliente regCliente = new RegistroCliente();
+        DefaultTableModel modelo = (DefaultTableModel) tablaUsuario.getModel();
+        
+
+        
+        modelo.setRowCount(0);
+        
+        Cliente cliente = regCliente.auditoriaRut(rutClienteInforme.getText());
+
+        
+                rut = cliente.getRutCliente();
+                nombre = cliente.getNombre();
+                apellidoPaterno = cliente.getAppPaterno();
+                apellidoMaterno = cliente.getAppMaterno();
+                area = cliente.getArea();
+                desayuno = cliente.isDesayuno();
+                almuerzo = cliente.isAlmuerzo();
+                cena = cliente.isCena();
+                colacionFria = cliente.isColacionFria();
+                colacionNoche = cliente.isColacionNoche();
+
+                
+                modelo.addRow(new Object[]{rut, nombre, apellidoPaterno, apellidoMaterno, area, desayuno, almuerzo, cena, colacionFria, colacionNoche});
+            
+    }//GEN-LAST:event_btnBuscarRutActionPerformed
+
+    private void volverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverMenuActionPerformed
+        // TODO add your handling code here:
+        MenuInicio Me = new MenuInicio();
+        Me.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverMenuActionPerformed
+
+    private void volverMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverMenu1ActionPerformed
+        // TODO add your handling code here:
+        MenuInicio Me = new MenuInicio();
+        Me.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,5 +262,7 @@ public class Auditoria extends javax.swing.JFrame {
     private javax.swing.JTextField rutClienteInforme;
     public javax.swing.JTable tablaUsuario;
     private java.awt.Label tittleInfo;
+    private javax.swing.JButton volverMenu;
+    private javax.swing.JButton volverMenu1;
     // End of variables declaration//GEN-END:variables
 }

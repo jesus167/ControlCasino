@@ -5,6 +5,9 @@
  */
 package vista;
 
+import controlador.RegistroCliente;
+import modelo.Cliente;
+
 /**
  *
  * @author Administrador
@@ -38,8 +41,9 @@ public class ActualizarCliente extends javax.swing.JFrame {
         clientSecLastNamField = new javax.swing.JTextField();
         userSecLastNamLabel = new javax.swing.JLabel();
         userAreaLabel = new javax.swing.JLabel();
-        areaComboBox = new javax.swing.JComboBox<>();
         btnActualizarCliente = new javax.swing.JButton();
+        areaClienteTextField = new javax.swing.JTextField();
+        volverMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,8 +54,23 @@ public class ActualizarCliente extends javax.swing.JFrame {
         clientRutField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientRutField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientRutField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientRutField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientRutFieldFocusGained(evt);
+            }
+        });
+        clientRutField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientRutFieldActionPerformed(evt);
+            }
+        });
 
         btnBuscarRut.setText("Buscar por Rut");
+        btnBuscarRut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarRutActionPerformed(evt);
+            }
+        });
 
         userNameLabel.setText("Nombre");
 
@@ -60,24 +79,55 @@ public class ActualizarCliente extends javax.swing.JFrame {
         clientNameField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientNameField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientNameField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientNameFieldFocusGained(evt);
+            }
+        });
 
         userLastNamLabel.setText("Apellido Paterno");
 
         clientLastNamField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientLastNamField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientLastNamField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientLastNamFieldFocusGained(evt);
+            }
+        });
 
         clientSecLastNamField.setMaximumSize(new java.awt.Dimension(200, 25));
         clientSecLastNamField.setMinimumSize(new java.awt.Dimension(200, 25));
         clientSecLastNamField.setPreferredSize(new java.awt.Dimension(200, 25));
+        clientSecLastNamField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                clientSecLastNamFieldFocusGained(evt);
+            }
+        });
 
         userSecLastNamLabel.setText("Apellido Materno");
 
         userAreaLabel.setText("Area");
 
-        areaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas\t", "Logistica", "Administrativo", "Informatica", "Externo" }));
-
         btnActualizarCliente.setText("Actualizar");
+        btnActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarClienteActionPerformed(evt);
+            }
+        });
+
+        areaClienteTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                areaClienteTextFieldFocusGained(evt);
+            }
+        });
+
+        volverMenu.setText("Volver");
+        volverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,21 +143,19 @@ public class ActualizarCliente extends javax.swing.JFrame {
                     .addComponent(userAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(clientNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clientNameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(clientRutField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(clientLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(clientSecLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(0, 85, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(areaClienteTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clientRutField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clientLastNamField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                            .addComponent(clientSecLastNamField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 85, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(volverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(btnActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
             .addGroup(layout.createSequentialGroup()
@@ -141,12 +189,14 @@ public class ActualizarCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userSecLastNamLabel)
                     .addComponent(clientSecLastNamField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userAreaLabel)
-                    .addComponent(areaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(btnActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(areaClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -157,6 +207,85 @@ public class ActualizarCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clientRutFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientRutFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientRutFieldActionPerformed
+
+    private void clientRutFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientRutFieldFocusGained
+        // TODO add your handling code here:
+        clientRutField.setText("");
+        
+    }//GEN-LAST:event_clientRutFieldFocusGained
+
+    private void clientNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientNameFieldFocusGained
+        // TODO add your handling code here:
+        clientNameField.setText("");
+    }//GEN-LAST:event_clientNameFieldFocusGained
+
+    private void clientLastNamFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientLastNamFieldFocusGained
+        // TODO add your handling code here:
+        clientLastNamField.setText("");
+    }//GEN-LAST:event_clientLastNamFieldFocusGained
+
+    private void areaClienteTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_areaClienteTextFieldFocusGained
+        // TODO add your handling code here:
+        areaClienteTextField.setText("");
+    }//GEN-LAST:event_areaClienteTextFieldFocusGained
+
+    private void btnBuscarRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRutActionPerformed
+        // TODO add your handling code here:
+        String rut, nombre, paterno, materno, area;
+        
+                
+        rut = clientRutField.getText();
+        Cliente c = new Cliente();
+        
+        RegistroCliente rc = new RegistroCliente();
+        c = rc.buscarRut(rut);
+        
+        clientNameField.setText(c.getNombre());
+        clientLastNamField.setText(c.getAppPaterno());
+        clientSecLastNamField.setText(c.getAppMaterno());
+        areaClienteTextField.setText(c.getArea());
+        
+           
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnBuscarRutActionPerformed
+
+    private void clientSecLastNamFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_clientSecLastNamFieldFocusGained
+        // TODO add your handling code here:
+        clientSecLastNamField.setText("");
+    }//GEN-LAST:event_clientSecLastNamFieldFocusGained
+
+    private void btnActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarClienteActionPerformed
+        // TODO add your handling code here
+        Cliente cliente = new Cliente();
+        RegistroCliente rc = new RegistroCliente();
+        
+        cliente.setNombre(clientNameField.getText());
+        cliente.setAppPaterno(clientLastNamField.getText());
+        cliente.setAppMaterno(clientSecLastNamField.getText());
+        cliente.setArea(areaClienteTextField.getText());
+        cliente.setRutCliente(clientRutField.getText());
+                
+        rc.modificarCliente(cliente);
+        
+        
+    }//GEN-LAST:event_btnActualizarClienteActionPerformed
+
+    private void volverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverMenuActionPerformed
+        // TODO add your handling code here:
+        MenuInicio Me = new MenuInicio();
+        Me.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +323,7 @@ public class ActualizarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> areaComboBox;
+    private javax.swing.JTextField areaClienteTextField;
     private javax.swing.JButton btnActualizarCliente;
     private javax.swing.JButton btnBuscarRut;
     private javax.swing.JTextField clientLastNamField;
@@ -207,5 +336,6 @@ public class ActualizarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel userNameLabel1;
     private javax.swing.JLabel userSecLastNamLabel;
+    private javax.swing.JButton volverMenu;
     // End of variables declaration//GEN-END:variables
 }
